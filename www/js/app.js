@@ -28,8 +28,8 @@ angular.module('starter', ['ionic', 'firebase'])
   };
 
   $scope.purchaseItem = function(item) {
-    $scope.item = item;
-    $scope.item['status'] = 'purchased';
+    var itemRef = new Firebase('https://intense-inferno-1606.firebaseio.com/items/' + item.$id);
+    itemRef.child('status').set('prchased');
     $ionicListDelegate.closeOptionButtons();
   };
 });
